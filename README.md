@@ -25,7 +25,7 @@ Effortlessly manage your browser tabs with Tab Manager, a Chrome extension desig
 ![Tab Grouping](images/grouping.png)  
 
 ## Demo Video  
-![Tab Manager Demo](https://drive.google.com/file/d/1oh1RU1YGYB9SpFEy2fIgcs_UTVfjhOdo/view?usp=sharing)
+![Tab Manager Demo](https://drive.google.com/uc?id=1oh1RU1YGYB9SpFEy2fIgcs_UTVfjhOdo)
 
 ## Installation  
 1. Clone this repository:  
