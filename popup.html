@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tab Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 400px;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+    #search {
+      width: 90%;
+      margin: 10px auto;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #tab-count {
+      font-weight: bold;
+      margin: 10px;
+      text-align: center;
+    }
+    .group {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+    }
+    .group h4 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+    }
+    .tab {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+    }
+    .tab h3 {
+      margin: 0;
+      font-size: 14px;
+      word-break: break-word;
+      cursor: pointer;
+    }
+    .tab h3:hover {
+      text-decoration: underline;
+      color: blue;
+    }
+    .tab button {
+      padding: 5px 10px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .tab button:hover {
+      background-color: #d32f2f;
+    }
+    #merge-btn {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+    }
+    #merge-btn:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <div id="tab-count"></div>
+  <input type="text" id="search" placeholder="Search tabs..." />
+  <button id="merge-btn">Merge Tabs by Domain</button>
+  <div id="tab-list"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
