@@ -1,87 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tab Manager</title>
   <style>
+    /* General Layout */
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      width: 100%;
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: #1f1f1f; /* Darker background */
+      color: #e5e5e5; /* Slightly darker text */
+      overflow: hidden;
+    }
+
+    /* Popup Container */
+    #popup-container {
       width: 400px;
-      max-height: 600px;
+      max-height: 500px;
+      padding: 16px;
+      background-color: #2e2e2e; /* Darker gray for container */
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Darker shadow */
       overflow-y: auto;
     }
+
+    /* Search Box */
     #search {
-      width: 90%;
-      margin: 10px auto;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      width: 100%; /* Same width as the merge button */
+      margin-bottom: 12px;
+      padding: 12px; /* Same padding as the merge button */
+      border: 1px solid #444;
+      border-radius: 8px;
+      background-color: #1c1c1c; /* Darker background */
+      color: #e5e5e5;
+      font-size: 14px;
     }
-    #tab-count {
+
+    #search::placeholder {
+      color: #888; /* Darker placeholder text */
+    }
+
+    /* Merge Tabs Button */
+    #merge-btn {
+      display: block;
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 12px; /* Matches the padding of the search box */
+      background-color: #5da4b0; /* Darker teal */
+      color: #1f1f1f;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
       font-weight: bold;
-      margin: 10px;
+      cursor: pointer;
       text-align: center;
+      transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
     }
-    .group {
-      margin: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: #f9f9f9;
+
+    #merge-btn:hover {
+      background-color: #478891; /* Slightly darker hover effect */
+      transform: translateY(-2px);
     }
-    .group h4 {
-      margin: 0 0 10px 0;
+
+    /* Tab Count */
+    #tab-count {
       font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      text-align: center;
+      color: #5da4b0;
     }
+
+    /* Tab Groups */
+    .group {
+      margin-bottom: 16px;
+      padding: 12px;
+      border-radius: 8px;
+      background-color: #3a3a3a; /* Darker gray for groups */
+      transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    }
+
+    .group:hover {
+      background-color: #484848; /* Slightly darker hover effect */
+      transform: translateY(-2px); /* Subtle lift effect */
+    }
+
+    .group h4 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      color: #e5e5e5;
+    }
+
+    /* Tabs */
     .tab {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 5px 0;
+      padding: 8px 0;
+      border-bottom: 1px solid #555; /* Darker border */
     }
+
+    .tab:last-child {
+      border-bottom: none;
+    }
+
     .tab h3 {
       margin: 0;
       font-size: 14px;
+      color: #5da4b0; /* Darker teal for text */
       word-break: break-word;
       cursor: pointer;
     }
+
     .tab h3:hover {
       text-decoration: underline;
-      color: blue;
     }
+
     .tab button {
-      padding: 5px 10px;
-      background-color: #f44336;
-      color: white;
+      padding: 6px 10px;
+      background-color: #333; /* Darker button */
+      color: #e5e5e5;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
+      font-size: 12px;
       cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
     }
+
     .tab button:hover {
-      background-color: #d32f2f;
-    }
-    #merge-btn {
-      display: block;
-      margin: 10px auto;
-      padding: 10px;
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      text-align: center;
-    }
-    #merge-btn:hover {
-      background-color: #388e3c;
+      background-color: #555; /* Slightly darker hover effect */
     }
   </style>
 </head>
 <body>
-  <div id="tab-count"></div>
-  <input type="text" id="search" placeholder="Search tabs..." />
-  <button id="merge-btn">Merge Tabs by Domain</button>
-  <div id="tab-list"></div>
+  <div id="popup-container">
+    <input type="text" id="search" placeholder="Search tabs..." />
+    <button id="merge-btn">Merge Tabs by Domain</button>
+    <div id="tab-count">No tabs currently open</div>
+    <div id="tab-list">
+      <!-- Example Tab Group -->
+      <div class="group">
+        <h4>Example Group</h4>
+        <div class="tab">
+          <h3>Example Tab 1</h3>
+          <button>Close</button>
+        </div>
+        <div class="tab">
+          <h3>Example Tab 2</h3>
+          <button>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="popup.js"></script>
 </body>
 </html>
